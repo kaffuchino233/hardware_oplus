@@ -1,3 +1,6 @@
 allow hal_vibrator_ext_default sysfs_leds:dir search;
+allow hal_vibrator_ext_default sysfs_vibrator:chr_file ioctl;
+allow hal_vibrator_ext_default input_device:chr_file rw_file_perms;
 
 rw_dir_file(hal_vibrator_ext_default, sysfs_vibrator)
+rw_dir_file(hal_vibrator_ext_default, input_device)
