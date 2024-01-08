@@ -1,2 +1,4 @@
 hal_client_domain(system_app, vendor_hal_display_iris)
 binder_call(system_app, vendor_hal_display_iris_default)
+
+allow system_app sysfs_leds:dir search;
