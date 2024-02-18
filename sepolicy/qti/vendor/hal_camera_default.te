@@ -1,3 +1,5 @@
+typeattribute hal_camera_default vendor_hal_qspmhal_client;
+
 hal_attribute_hwservice(hal_camera, vendor_hal_camera_extension_hwservice)
 
 hal_client_domain(hal_camera_default, vendor_hal_cameraMDM)
@@ -32,6 +34,7 @@ allow hal_camera_default public_adsprpcd_file:file r_file_perms;
 add_hwservice(hal_camera_server, hal_camera_hwservice)
 
 binder_call(hal_camera_default, platform_app)
+binder_call(hal_camera_default, vendor_hal_qspmhal_default)
 
 r_dir_file(hal_camera_default, input_device)
 r_dir_file(hal_camera_default, proc_version)
