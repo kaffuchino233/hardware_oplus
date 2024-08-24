@@ -1,6 +1,6 @@
 package android.common;
 
-public class OplusFrameworkFactory {
+public class OplusFrameworkFactory implements IOplusCommonFactory {
 
     private static OplusFrameworkFactory sOplusFrameworkFactory = null;
 
@@ -9,5 +9,16 @@ public class OplusFrameworkFactory {
             sOplusFrameworkFactory = new OplusFrameworkFactory();
         }
         return sOplusFrameworkFactory;
+    }
+
+    @Override
+    public boolean isValid(int index) {
+        final boolean validOplus =
+                index < OplusFeatureList.OplusIndex.EndOplusFrameworkFactory.ordinal() &&
+                index > OplusFeatureList.OplusIndex.StartOplusFrameworkFactory.ordinal();
+        final boolean vaildOplusOs =
+                index < OplusFeatureList.OplusIndex.EndOplusOsFrameworkFactory.ordinal() &&
+                index > OplusFeatureList.OplusIndex.StartOplusOsFrameworkFactory.ordinal();
+        return vaildOplusOs || validOplus;
     }
 }

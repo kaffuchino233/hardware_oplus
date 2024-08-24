@@ -1,7 +1,5 @@
 package android.common;
 
-import android.common.OplusFeatureList;
-
 public interface IOplusCommonFeature {
 
     default OplusFeatureList.OplusIndex index() {
