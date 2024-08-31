@@ -264,6 +264,8 @@
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.oplus                    u:object_r:hal_fingerprint_default_exec:s0
 /dev/fingerprint_dev                                                                             u:object_r:fingerprint_device:s0
 /dev/goodix_fp                                                                                   u:object_r:fingerprint_device:s0
+/dev/jiiov_fp                                                                                    u:object_r:fingerprint_device:s0
+/dev/silead_fp                                                                                   u:object_r:fingerprint_device:s0
 
 # Init
 /(odm|vendor/odm)/bin/init\.oplus\.sh          u:object_r:vendor_qti_init_shell_exec:s0
@@ -288,6 +290,9 @@
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service     u:object_r:hal_secure_element_default_exec:s0
 /vendor/bin/hw/android\.hardware\.nfc-service\.nxp                    u:object_r:hal_nfc_default_exec:s0
 /dev/pn553                                                            u:object_r:nfc_device:s0
+
+# OSENSE
+/vendor/bin/hw/vendor\.oplus\.hardware\.osense\.client-service    u:object_r:hal_oplus_osense_aidl_exec:s0
 
 # Partitions
 /dev/block/platform/soc/1d84000\.ufshc/by-name/engineering_cdt_[ab]    u:object_r:vendor_custom_ab_block_device:s0

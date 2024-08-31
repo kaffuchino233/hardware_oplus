@@ -1,6 +1,9 @@
 # Autotest
 persist.sys.oplus.autotest.monkeyRunning    u:object_r:exported_system_prop:s0
 
+# Bluetooth
+persist.sys.bt.a2dp.pendingtime        u:object_r:exported_system_prop:s0
+
 # Camera
 NA                                     u:object_r:exported_system_prop:s0
 oplus.CTP.                             u:object_r:exported_system_prop:s0
@@ -39,6 +42,7 @@ ro.oplus.image.my_engineering.type    u:object_r:exported_system_prop:s0
 oplus.fingerprint.    u:object_r:system_fingerprint_prop:s0
 oplus.goodix.fp       u:object_r:system_fingerprint_prop:s0
 oplus.optical.        u:object_r:system_fingerprint_prop:s0
+persist.sys.fp.       u:object_r:system_fingerprint_prop:s0
 
 # Logging
 aec.custom.                         u:object_r:exported_system_prop:s0
@@ -59,6 +63,7 @@ sys.oplus.high.performance    u:object_r:exported_system_prop:s0
 
 # Radio
 ro.build.display.full_id    u:object_r:exported_system_prop:s0
+ro.build.oplus_nv_id        u:object_r:exported_system_prop:s0
 ro.sys.reserve.integrate    u:object_r:exported_system_prop:s0
 sys.oplus_boot_mode         u:object_r:exported_system_prop:s0
 

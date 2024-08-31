@@ -17,6 +17,7 @@
 #pragma once
 
 #include <android-base/properties.h>
+#include <android-base/strings.h>
 #include <android/hardware/biometrics/fingerprint/2.1/types.h>
 #include <android/hardware/biometrics/fingerprint/2.2/IBiometricsFingerprintClientCallback.h>
 #include <android/hardware/biometrics/fingerprint/2.3/IBiometricsFingerprint.h>
@@ -116,6 +117,11 @@ class BiometricsFingerprint : public IBiometricsFingerprint,
 
     bool isDcDimmingOn() {
         return GetProperty("persist.vendor.display.dc_state", "") == "1";
+    }
+
+    bool isUff() {
+        return android::base::StartsWith(GetProperty("persist.vendor.fingerprint.version", ""),
+                                         "UFF ");
     }
 
     bool setDimlayerHbm(unsigned int value) {
