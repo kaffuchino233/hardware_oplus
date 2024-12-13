@@ -537,7 +537,7 @@ void HalProxy::initializeSensorList() {
                     if (!keep) {
                         continue;
                     }
-                    if (static_cast<int>(event.sensorType) == SENSOR_TYPE_QTI_WISE_LIGHT) {
+                    if (static_cast<int>(sensor.type) == SENSOR_TYPE_QTI_WISE_LIGHT) {
                         sensor.type = V2_1::SensorType::LIGHT;
                         AlsCorrection::init();
                     }
