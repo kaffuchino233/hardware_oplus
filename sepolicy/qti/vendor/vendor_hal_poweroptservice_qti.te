@@ -1,0 +1,1 @@
+allow vendor_hal_poweroptservice_qti vendor_sysfs_sde_crtc:dir search;

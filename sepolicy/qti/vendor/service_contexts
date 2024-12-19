@@ -1,15 +1,27 @@
 # Camera
+vendor.oplus.hardware.camera_rfi.ICameraRfiService/default               u:object_r:hal_oplus_camera_rfi_aidl_service:s0
 vendor.oplus.hardware.cameraextension.ICameraExtensionService/default    u:object_r:hal_camera_service:s0
 vendor.oplus.hardware.cammidasservice.IMIDASService/default              u:object_r:hal_oplus_cammidasservice_aidl_service:s0
 vendor.oplus.hardware.sendextcamcmd.ISendExtCamCmdService/default        u:object_r:hal_camera_service:s0
 
-# DPM
-vendor.qti.hardware.dpmaidlservice.IDpmService/default    u:object_r:hal_dpm_aidl_service:s0
+# Commondcs
+vendor.oplus.hardware.commondcs.ICommonDcsAidlHalService/default         u:object_r:hal_oplus_commondcs_aidl_service:s0
+
+# Commcenter
+vendor.oplus.hardware.communicationcenter.IDmtpService/default           u:object_r:hal_oplus_commcenter_aidl_service:s0
+
+# CWB
+vendor.oplus.hardware.cwb.ICwbService/default   u:object_r:hal_oplus_cwb_aidl_service:s0
+
+# Display
+vendor.oplus.hardware.displaycolorfeature.IDisplayColorFeature/default   u:object_r:hal_oplus_displaycolor_aidl_service:s0
 
 # Fingerprint
 android.hardware.biometrics.fingerprint.IFingerprint/oplus          u:object_r:hal_fingerprint_service:s0
-vendor.oplus.hardware.commondcs.ICommonDcsAidlHalService/default    u:object_r:hal_fingerprint_service:s0
 vendor.oplus.hardware.olc2.IOplusLogCore/default                    u:object_r:hal_fingerprint_service:s0
+
+# Iris
+vendor.pixelworks.hardware.display.IIris/default     u:object_r:hal_display_iris_aidl_service:s0
 
 # NFC
 vendor.nxp.nxpnfc_aidl.INxpNfc/default    u:object_r:hal_nfc_service:s0
@@ -40,3 +52,6 @@ vendor.oplus.hardware.radio.IRadioStable/OplusRadio1                 u:object_r:
 
 # Touch
 vendor.oplus.hardware.touch.IOplusTouch/default    u:object_r:hal_oplus_touch_aidl_service:s0
+
+# URCC
+vendor.oplus.hardware.urcc.IUrcc/default           u:object_r:hal_oplus_urcc_aidl_service:s0
