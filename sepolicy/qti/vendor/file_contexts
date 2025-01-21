@@ -133,6 +133,7 @@
 /(odm|vendor/odm)/lib64/vendor\.oplus\.hardware\.osense\.client@1\.0\.so                     u:object_r:same_process_hal_file:s0
 /(odm|vendor|vendor/odm)/lib64/vendor\.oplus\.hardware\.osense\.client-V1-ndk\.so            u:object_r:same_process_hal_file:s0
 /(odm|vendor|vendor/odm)/lib64/vendor\.oplus\.hardware\.osense\.client-V1-ndk_platform\.so   u:object_r:same_process_hal_file:s0
+/(odm|vendor|vendor/odm)/lib64/vendor\.oplus\.hardware\.urcc-V1-ndk_platform\.so             u:object_r:same_process_hal_file:s0
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.cammidasservice-V1-service                 u:object_r:hal_oplus_cammidasservice_aidl_exec:s0
 /(odm|vendor/odm)/lib/rfsa/adsp/hta_lib/libhta_dsp_skel.so                                   u:object_r:same_process_hal_file:s0
 /(odm|vendor/odm)/lib64/hta_lib/libhta_hexagon_runtime\.so                                   u:object_r:same_process_hal_file:s0
@@ -272,6 +273,7 @@
 
 # Graphics
 /vendor/lib64/libllvm-qgl\.so            u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libgpudataproducer\.so     u:object_r:same_process_hal_file:s0
 
 # Init
 /(odm|vendor/odm)/bin/init\.oplus\.sh          u:object_r:vendor_qti_init_shell_exec:s0

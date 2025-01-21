@@ -1,0 +1,3 @@
+allow shell vendor_hal_perf_hwservice:hwservice_manager find;
+
+binder_call(shell, vendor_hal_perf_default)

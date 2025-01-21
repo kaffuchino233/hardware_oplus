@@ -15,6 +15,7 @@ com.oplus.camera.                      u:object_r:exported_system_prop:s0
 oplus.CTP.                             u:object_r:exported_system_prop:s0
 oplus.camera.                          u:object_r:exported_system_prop:s0
 oppo.camera.                           u:object_r:exported_system_prop:s0
+persist.bps.debug                      u:object_r:exported_system_prop:s0
 persist.camera.                        u:object_r:exported_system_prop:s0
 persist.sys.camera.lao.enable          u:object_r:exported_system_prop:s0
 persist.sys.state.is.otest.running     u:object_r:exported_system_prop:s0
@@ -29,6 +30,7 @@ ro.oplus.                              u:object_r:exported_system_prop:s0
 ro.oppo.                               u:object_r:exported_system_prop:s0
 ro.vendor.gfx.                         u:object_r:exported_system_prop:s0
 ro.vendor.oplus.                       u:object_r:exported_system_prop:s0
+sys.oppo_ftm_mode                      u:object_r:exported_system_prop:s0
 vendor.aps.                            u:object_r:exported_system_prop:s0
 vendor.arcsoft.                        u:object_r:exported_system_prop:s0
 vendor.boot.project_name               u:object_r:exported_system_prop:s0
@@ -48,6 +50,7 @@ sys.touch.game_mode                u:object_r:exported_system_prop:s0
 ro.oplus.image.my_engineering.type    u:object_r:exported_system_prop:s0
 
 # Fingerprint
+gf.debug.dump_data    u:object_r:system_fingerprint_prop:s0
 oplus.fingerprint.    u:object_r:system_fingerprint_prop:s0
 oplus.goodix.fp       u:object_r:system_fingerprint_prop:s0
 oplus.optical.        u:object_r:system_fingerprint_prop:s0

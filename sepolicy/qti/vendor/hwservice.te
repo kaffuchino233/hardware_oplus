@@ -2,6 +2,12 @@
 type vendor_hal_camera_extension_hwservice, hwservice_manager_type, protected_hwservice;
 type vendor_hal_cameraMDM_hwservice, hwservice_manager_type, protected_hwservice;
 
+# Charger
+type vendor_hal_charger_hwservice, hwservice_manager_type, protected_hwservice;
+
+# Diag
+type vendor_hal_diaghal_hwservice, hwservice_manager_type, protected_hwservice;
+
 # Iris
 type vendor_hal_display_iris_hwservice, hwservice_manager_type, protected_hwservice;
 
