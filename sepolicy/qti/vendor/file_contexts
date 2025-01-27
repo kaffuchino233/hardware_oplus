@@ -384,6 +384,7 @@
 /sys/devices/platform/soc/a8c000.i2c/i2c-6/6-005a/leds/vibrator/(/.*)?                u:object_r:sysfs_vibrator:s0
 /sys/devices/platform/soc/88c000.i2c/i2c-6/6-005a/leds/vibrator/(/.*)?                u:object_r:sysfs_vibrator:s0
 /sys/devices/platform/soc/88c000.i2c/i2c-11/11-005a/leds/vibrator/(/.*)?              u:object_r:sysfs_vibrator:s0
+/dev/awinic_haptic                                                                    u:object_r:aac_richtap_device:s0
 /dev/input/(/.*)?                                                                     u:object_r:sysfs_vibrator:s0
 
 # Widevine
