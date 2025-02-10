@@ -23,7 +23,7 @@ prop {
 }
 
 # sensor location
-#    <x>|<y>|<radius>|display in pixel
+#    <x>|<y>|<radius>|<display> in pixels
 prop {
     prop_name: "ro.vendor.fingerprint.sensor_location"
     type: String

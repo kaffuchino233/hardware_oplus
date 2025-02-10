@@ -33,8 +33,8 @@ constexpr char SW_VERSION[] = "vendor/version/revision";
 
 Fingerprint::Fingerprint() {
     const std::string instance = std::string() + Fingerprint::descriptor + "/oplus";
-    mOplusFingerprint =
-            IFingerprint::fromBinder(ndk::SpAIBinder(AServiceManager_getService(instance.c_str())));
+    mOplusFingerprint = IFingerprint::fromBinder(
+            ndk::SpAIBinder(AServiceManager_waitForService(instance.c_str())));
 
     std::string sensorTypeProp = FingerprintHalProperties::type().value_or("");
     if (sensorTypeProp == "" || sensorTypeProp == "default" || sensorTypeProp == "rear")
@@ -52,8 +52,6 @@ Fingerprint::Fingerprint() {
 
     mMaxEnrollmentsPerUser =
             FingerprintHalProperties::max_enrollments_per_user().value_or(MAX_ENROLLMENTS_PER_USER);
-
-    return;
 }
 
 ndk::ScopedAStatus Fingerprint::getSensorProps(std::vector<SensorProps>* out) {
