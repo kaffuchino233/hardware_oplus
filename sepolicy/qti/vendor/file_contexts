@@ -2,8 +2,9 @@
 /vendor/bin/tri-state-key-calibrate    u:object_r:tri-state-key-calibrate_exec:s0
 
 # Battery
-/sys/devices/virtual/oplus_chg/battery/mmi_charging_enable            u:object_r:vendor_sysfs_battery_supply:s0
-/sys/devices/virtual/oplus_chg/battery/voocchg_ing                    u:object_r:vendor_sysfs_battery_supply:s0
+/(vendor|system/vendor)/bin/hw/vendor\.nameless\.hardware\.battery-service\.oplus u:object_r:hal_battery_default_exec:s0
+/sys/devices/virtual/oplus_chg/battery/mmi_charging_enable                        u:object_r:vendor_sysfs_battery_supply:s0
+/sys/devices/virtual/oplus_chg/battery/voocchg_ing                                u:object_r:vendor_sysfs_battery_supply:s0
 
 # Camera
 /data/vendor/camera_update(/.*)?                                                             u:object_r:vendor_camera_update_data_file:s0

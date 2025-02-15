@@ -1,0 +1,24 @@
+/*
+ * Copyright (C) 2025 The Nameless-CLO Project
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+cc_binary {
+    name: "vendor.nameless.hardware.battery-service.oplus",
+    defaults: ["nameless_aidl_defaults"],
+    init_rc: ["vendor.nameless.hardware.battery-service.oplus.rc"],
+    vintf_fragments: ["vendor.nameless.hardware.battery-service.oplus.xml"],
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: [
+        "Battery.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "liblog",
+        "libutils",
+        "vendor.nameless.hardware.battery-V1-ndk",
+    ],
+}
