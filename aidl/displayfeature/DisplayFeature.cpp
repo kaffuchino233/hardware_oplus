@@ -25,6 +25,11 @@ DisplayFeature::DisplayFeature() : mDeviceInfo(nullptr) {
         ALOGD("device name: %s", deviceName.c_str());
     }
 
+    // OnePlus 13
+    if (deviceName == "dodge") {
+        mDeviceInfo = &CONFIG_OP13;
+        goto END;
+    }
     // OnePlus 12
     if (deviceName == "waffle") {
         mDeviceInfo = &CONFIG_OP12;

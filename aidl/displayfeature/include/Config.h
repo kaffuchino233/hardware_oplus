@@ -93,6 +93,18 @@ static const std::unordered_map<int, std::string> TP_ORIENTATION_MAP = {
     { 270, "2" }
 };
 
+static const DeviceInfo CONFIG_OP13 = {
+    .supportedFeatures = FEATURE_HIGH_SAMPLE_LTPO,
+    .featureNode = {
+        .highTouchSampleNode = OPLUS_TOUCH_HIGH_TOUCH_SAMPLE,
+        .ltpoNode = { LTPO_MIN_FPS_NODE, LTPO_TEST_TE_NODE }
+    },
+    .colorModeMap = COLOR_MODE_MAP_303_301_307,
+    .useOplusTouch = true,
+    .touchGestureInitNode = { OPLUS_TOUCH_DT2W, OPLUS_TOUCH_GESTURE_WITHOUT_S },
+    .touchGestureReportNode = OPLUS_TOUCH_GESTURE_REPORT
+};
+
 static const DeviceInfo CONFIG_OP12 = {
     .supportedFeatures = FEATURE_HIGH_SAMPLE_LTPO,
     .featureNode = {
