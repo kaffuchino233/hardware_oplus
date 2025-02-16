@@ -26,6 +26,11 @@ Battery::Battery() : mDeviceInfo(nullptr) {
         ALOGD("device name: %s, prjname: %d, rf version: %d", deviceName.c_str(), prjname, rfVersion);
     }
 
+    // OnePlus 13
+    if (deviceName == "dodge") {
+        mDeviceInfo = &PRESET_ALL_FEATURE_NEW_QUIET_MODE;
+        goto END;
+    }
     // OnePlus 12
     if (deviceName == "waffle") {
         mDeviceInfo = &PRESET_ALL_FEATURE_NEW_QUIET_MODE;
