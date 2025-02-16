@@ -5,6 +5,7 @@
 
 #include "include/StubVibrator.h"
 #include "include/VibratorExt.h"
+#include "include/device/dodge_0916t.h"
 #include "include/device/kona_0815.h"
 #include "include/device/lahaina_0809.h"
 #include "include/device/salami_0916.h"
@@ -26,6 +27,11 @@ VibratorExt::VibratorExt() : mVibrator(nullptr) {
         ALOGD("device name: %s", deviceName.c_str());
     }
 
+    // OnePlus 13
+    if (deviceName == "dodge") {
+        mVibrator = new dodge_0916t_vibrator();
+        goto END;
+    }
     // OnePlus 12
     if (deviceName == "waffle") {
         mVibrator = new waffle_0916t_vibrator();
