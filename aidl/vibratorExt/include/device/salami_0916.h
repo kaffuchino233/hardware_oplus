@@ -1,0 +1,222 @@
+/*
+ * Copyright (C) 2025 The Nameless-CLO Project
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#pragma once
+
+#include "../InputFFVibrator.h"
+
+static const FirmwarePathConfig FIRMWARE_PATH_CONFIG_SALAMI = {
+    .crispPathPrefix = "/odm/etc/vibrator/def/effect_"
+};
+
+static std::unordered_map<Effect, CustomEffectStyleSet> EFFECTS_MAP_SALAMI {
+    // AOSP effects
+    { Effect::CLICK, {
+        .crisp = {
+            .firmware_id = { 111 },
+            .min_interval = 80
+        }
+    }},
+    { Effect::DOUBLE_CLICK, {
+        .crisp = {
+            .firmware_id = { 8, 8 },
+            .sleep_time = { 150 }
+        }
+    }},
+    { Effect::TICK, {
+        .crisp = {
+            .firmware_id = { 6 },
+            .min_interval = 120
+        }
+    }},
+    { Effect::THUD, {
+        .crisp = {
+            .firmware_id = { 111 }
+        }
+    }},
+    { Effect::POP, {
+        .crisp = {
+            .firmware_id = { 4 }
+        }
+    }},
+    { Effect::HEAVY_CLICK, {
+        .crisp = {
+            .firmware_id = { 8 }
+        }
+    }},
+    // Custom effects
+    { Effect::DURATION_STRENGTH_LEVEL1, {
+        .crisp = {
+            .firmware_id = { 110 },
+            .scale = { 0.3 },
+            .min_interval = 80
+        }
+    }},
+    { Effect::DURATION_STRENGTH_LEVEL2, {
+        .crisp = {
+            .firmware_id = { 110 },
+            .scale = { 0.4 },
+            .min_interval = 80
+        }
+    }},
+    { Effect::DURATION_STRENGTH_LEVEL3, {
+        .crisp = {
+            .firmware_id = { 110 },
+            .scale = { 0.5 },
+            .min_interval = 80
+        }
+    }},
+    { Effect::DURATION_STRENGTH_LEVEL4, {
+        .crisp = {
+            .firmware_id = { 111 },
+            .scale = { 0.5 },
+            .min_interval = 80
+        }
+    }},
+    { Effect::DURATION_STRENGTH_LEVEL5, {
+        .crisp = {
+            .firmware_id = { 111 },
+            .scale = { 0.6 },
+            .min_interval = 80
+        },
+    }},
+    { Effect::DURATION_STRENGTH_LEVEL6, {
+        .crisp = {
+            .firmware_id = { 111 },
+            .scale = { 0.7 },
+            .min_interval = 80
+        },
+    }},
+    { Effect::DURATION_STRENGTH_LEVEL7, {
+        .crisp = {
+            .firmware_id = { 112 },
+            .scale = { 0.7 },
+            .min_interval = 80
+        },
+    }},
+    { Effect::DURATION_STRENGTH_LEVEL8, {
+        .crisp = {
+            .firmware_id = { 112 },
+            .scale = { 0.8 },
+            .min_interval = 80
+        }
+    }},
+    { Effect::DURATION_STRENGTH_LEVEL9, {
+        .crisp = {
+            .firmware_id = { 112 },
+            .scale = { 0.9 },
+            .min_interval = 80
+        }
+    }},
+    { Effect::DURATION_STRENGTH_LEVEL10, {
+        .crisp = {
+            .firmware_id = { 112 },
+            .scale = { 1.0 },
+            .min_interval = 80
+        }
+    }},
+    { Effect::RINGTONE_CUT, {
+        .crisp = {
+            .firmware_id = { 42 }
+        }
+    }},
+    { Effect::ALERT_SLIDER_BOTTOM, {
+        .crisp = {
+            .firmware_id = { 308 }
+        }
+    }},
+    { Effect::ALERT_SLIDER_MIDDLE, {
+        .crisp = {
+            .firmware_id = { 365 }
+        }
+    }},
+    { Effect::BUTTON_CLICK, {
+        .crisp = {
+            .firmware_id = { 111 }
+        }
+    }},
+    { Effect::CLEAR_ALL_NOTIFICATION, {
+        .crisp = {
+            .firmware_id = { 8 }
+        },
+    }},
+    { Effect::CLEAR_ALL_RECENT, {
+        .crisp = {
+            .firmware_id = { 47 }
+        }
+    }},
+    { Effect::KEYBOARD_PRESS, {
+        .crisp = {
+            .firmware_id = { 8, 8 },
+            .sleep_time = { 100 },
+            .min_interval = 80
+        }
+    }},
+    { Effect::PLUG_IN, {
+        .crisp = {
+            .firmware_id = { FIRMWARE_ID_MAX + 200, 108 },
+            .sleep_time = { 600 }
+        }
+    }},
+    { Effect::SCREEN_OFF, {
+        .crisp = {
+            .firmware_id = { 315 }
+        }
+    }},
+    { Effect::SCREEN_ON, {
+        .crisp = {
+            .firmware_id = { 6 }
+        }
+    }},
+    { Effect::SCREENSHOT, {
+        .crisp = {
+            .firmware_id = { 47 }
+        }
+    }},
+    { Effect::SLIDER_EDGE, {
+        .crisp = {
+            .firmware_id = { 8 }
+        }
+    }},
+    { Effect::SLIDER_STEP, {
+        .crisp = {
+            .firmware_id = { 111 },
+            .scale = { 0.6 },
+            .min_interval = 120
+        }
+    }},
+    { Effect::SWITCH_TOGGLE, {
+        .crisp = {
+            .firmware_id = { 4 }
+        }
+    }},
+    { Effect::UNIFIED_ERROR, {
+        .crisp = {
+            .firmware_id = { 46 }
+        }
+    }},
+    { Effect::UNIFIED_SUCCESS, {
+        .crisp = {
+            .firmware_id = { 4 }
+        }
+    }}
+};
+
+class salami_0916_vibrator : public InputFFVibrator {
+public:
+    salami_0916_vibrator() : InputFFVibrator(
+        &UNIFIED_LEVEL_RANGE_CONFIG,
+        &FIRMWARE_PATH_CONFIG_SALAMI,
+        EFFECTS_MAP_SALAMI
+    ) {}
+
+    bool isMultipleStyleSupported() override {
+        return false;
+    }
+
+    const char* getName() override {
+        return "salami_0916_vibrator";
+    }
+};

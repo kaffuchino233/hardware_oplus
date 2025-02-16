@@ -5,3 +5,5 @@ allow hal_vibrator_ext_default input_device:chr_file rw_file_perms;
 r_dir_file(hal_vibrator_ext_default, vendor_vibrator_data_file)
 rw_dir_file(hal_vibrator_ext_default, sysfs_vibrator)
 rw_dir_file(hal_vibrator_ext_default, input_device)
+
+get_prop(hal_vibrator_ext_default, exported_system_prop)
