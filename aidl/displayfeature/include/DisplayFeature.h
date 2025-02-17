@@ -57,7 +57,6 @@ struct DisplayFeature : public BnDisplayFeature {
 private:
     const DeviceInfo* mDeviceInfo;
     std::shared_ptr<IOplusTouch> mOplusTouch = nullptr;
-    void initOplusTouch();
 public:
     ndk::ScopedAStatus hasFeature(Feature feature, bool* _aidl_return) override;
     ndk::ScopedAStatus isFeatureEnabled(Feature feature, bool* _aidl_return) override;

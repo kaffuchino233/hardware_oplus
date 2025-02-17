@@ -256,23 +256,11 @@ ndk::ScopedAStatus DisplayFeature::sendCommand(Command command, int* _aidl_retur
     return ndk::ScopedAStatus::ok();
 }
 
-void DisplayFeature::initOplusTouch() {
-    if (mOplusTouch != nullptr) {
-        return;
-    }
-    const std::string defaultInstance = std::string() + IOplusTouch::descriptor + "/default";
-    mOplusTouch = IOplusTouch::fromBinder(ndk::SpAIBinder(
-            AServiceManager_waitForService(defaultInstance.c_str())));
-    if (mOplusTouch != nullptr) {
-        return;
-    }
-    const std::string oplusInstance = std::string() + IOplusTouch::descriptor + "/oplus";
-    mOplusTouch = IOplusTouch::fromBinder(ndk::SpAIBinder(
-            AServiceManager_waitForService(oplusInstance.c_str())));
-}
-
 bool DisplayFeature::oplusTouchReadNode(int featureId, std::string* result) {
-    initOplusTouch();
+    if (mOplusTouch == nullptr) {
+        const std::string instance = std::string() + IOplusTouch::descriptor + "/default";
+        mOplusTouch = IOplusTouch::fromBinder(ndk::SpAIBinder(AServiceManager_waitForService(instance.c_str())));
+    }
     if (mOplusTouch == nullptr) {
         ALOGE("oplusTouchReadNode failed, oplus touch service is null");
         return false;
@@ -285,7 +273,10 @@ bool DisplayFeature::oplusTouchReadNode(int featureId, std::string* result) {
 }
 
 bool DisplayFeature::oplusTouchWriteNode(int featureId, std::string value) {
-    initOplusTouch();
+    if (mOplusTouch == nullptr) {
+        const std::string instance = std::string() + IOplusTouch::descriptor + "/default";
+        mOplusTouch = IOplusTouch::fromBinder(ndk::SpAIBinder(AServiceManager_waitForService(instance.c_str())));
+    }
     if (mOplusTouch == nullptr) {
         ALOGE("oplusTouchWriteNode failed, oplus touch service is null");
         return false;
