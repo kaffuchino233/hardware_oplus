@@ -255,6 +255,7 @@
 /sys/kernel/oplus_display/dimlayer_hbm                                                   u:object_r:vendor_sysfs_graphics:s0
 /sys/kernel/oplus_display/hbm                                                            u:object_r:vendor_sysfs_graphics:s0
 /sys/kernel/oplus_display/min_fps                                                        u:object_r:vendor_sysfs_graphics:s0
+/sys/kernel/oplus_display/pwm_onepulse                                                   u:object_r:vendor_sysfs_graphics:s0
 /sys/kernel/oplus_display/seed                                                           u:object_r:vendor_sysfs_graphics:s0
 /sys/kernel/oplus_display/test_te                                                        u:object_r:vendor_sysfs_graphics:s0
 /proc/touchpanel/game_switch_enable                                                      u:object_r:vendor_proc_display:s0

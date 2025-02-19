@@ -20,6 +20,12 @@ static const NodeInfo DC_DIMMING_NODE = {
     .writeEnableValue = "1",
     .writeDisableValue = "0"
 };
+static const NodeInfo ONE_PULSE_NODE = {
+    .path = "/sys/kernel/oplus_display/pwm_onepulse",
+    .readDisabledPrefix = "0",
+    .writeEnableValue = "1",
+    .writeDisableValue = "0"
+};
 static const NodeInfo HBM_NODE = {
     .path = "/sys/kernel/oplus_display/hbm",
     .readDisabledPrefix = "0",
@@ -60,20 +66,23 @@ static const NodeInfo OPLUS_TOUCH_GESTURE_REPORT = {
     .oplusTouchFeatureId = 2
 };
 
-static const int FEATURE_DC_HBM             = static_cast<int>(Feature::DC_DIMMING) |
-                                              static_cast<int>(Feature::HBM_MODE);
-static const int FEATURE_HBM_HIGH_SAMPLE    = static_cast<int>(Feature::HBM_MODE) |
-                                              static_cast<int>(Feature::HIGH_SAMPLE_TOUCH);
-static const int FEATURE_DC_HBM_HIGH_SAMPLE = static_cast<int>(Feature::DC_DIMMING) |
-                                              static_cast<int>(Feature::HBM_MODE) |
-                                              static_cast<int>(Feature::HIGH_SAMPLE_TOUCH);
-static const int FEATURE_HIGH_SAMPLE_LTPO   = static_cast<int>(Feature::HIGH_SAMPLE_TOUCH) |
-                                              static_cast<int>(Feature::LTPO);
-static const int FEATURE_SDR2_HDR_MEMC_ALL  = static_cast<int>(Feature::SDR2HDR) |
-                                              static_cast<int>(Feature::MEMC_FHD) |
-                                              static_cast<int>(Feature::MEMC_QHD);
-static const int FEATURE_SDR2_HDR_MEMC_FHD  = static_cast<int>(Feature::SDR2HDR) |
-                                              static_cast<int>(Feature::MEMC_FHD);
+static const int FEATURE_DC_HBM              = static_cast<int>(Feature::DC_DIMMING) |
+                                               static_cast<int>(Feature::HBM_MODE);
+static const int FEATURE_HBM_HIGH_SAMPLE     = static_cast<int>(Feature::HBM_MODE) |
+                                               static_cast<int>(Feature::HIGH_SAMPLE_TOUCH);
+static const int FEATURE_DC_HBM_HIGH_SAMPLE  = static_cast<int>(Feature::DC_DIMMING) |
+                                               static_cast<int>(Feature::HBM_MODE) |
+                                               static_cast<int>(Feature::HIGH_SAMPLE_TOUCH);
+static const int FEATURE_HIGH_SAMPLE_LTPO    = static_cast<int>(Feature::HIGH_SAMPLE_TOUCH) |
+                                               static_cast<int>(Feature::LTPO);
+static const int FEATURE_DC_HIGH_SAMPLE_LTPO = static_cast<int>(Feature::DC_DIMMING) |
+                                               static_cast<int>(Feature::HIGH_SAMPLE_TOUCH) |
+                                               static_cast<int>(Feature::LTPO);
+static const int FEATURE_SDR2_HDR_MEMC_ALL   = static_cast<int>(Feature::SDR2HDR) |
+                                               static_cast<int>(Feature::MEMC_FHD) |
+                                               static_cast<int>(Feature::MEMC_QHD);
+static const int FEATURE_SDR2_HDR_MEMC_FHD   = static_cast<int>(Feature::SDR2HDR) |
+                                               static_cast<int>(Feature::MEMC_FHD);
 
 static const std::unordered_map<int, std::string> COLOR_MODE_MAP_0_256_258_259 = {
     { 0, "102" },
@@ -106,8 +115,9 @@ static const DeviceInfo CONFIG_OP13 = {
 };
 
 static const DeviceInfo CONFIG_OP12 = {
-    .supportedFeatures = FEATURE_HIGH_SAMPLE_LTPO,
+    .supportedFeatures = FEATURE_DC_HIGH_SAMPLE_LTPO,
     .featureNode = {
+        .dcDimmingNode = ONE_PULSE_NODE,
         .highTouchSampleNode = OPLUS_TOUCH_HIGH_TOUCH_SAMPLE,
         .ltpoNode = { LTPO_MIN_FPS_NODE, LTPO_TEST_TE_NODE }
     },
