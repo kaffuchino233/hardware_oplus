@@ -11,6 +11,7 @@
 
 using ::android::base::GetProperty;
 using ::android::base::ReadFileToString;
+using ::android::base::SetProperty;
 using ::android::base::WriteStringToFile;
 
 namespace aidl {
@@ -28,36 +29,47 @@ DisplayFeature::DisplayFeature() : mDeviceInfo(nullptr) {
     // OnePlus 13
     if (deviceName == "dodge") {
         mDeviceInfo = &CONFIG_OP13;
+        SetProperty("sys.nameless.feature.touch_gesture.bit", "78068");
+        SetProperty("sys.nameless.feature.touch_gesture.oplus", "true");
         goto END;
     }
     // OnePlus 12
     if (deviceName == "waffle") {
         mDeviceInfo = &CONFIG_OP12;
+        SetProperty("sys.nameless.feature.display.dc_alias_one_pulse", "true");
+        SetProperty("sys.nameless.feature.touch_gesture.bit", "78068");
+        SetProperty("sys.nameless.feature.touch_gesture.oplus", "true");
         goto END;
     }
     // OnePlus 11
     if (deviceName == "salami") {
         mDeviceInfo = &CONFIG_OP11;
+        SetProperty("sys.nameless.feature.touch_gesture.bit", "78068");
+        SetProperty("sys.nameless.feature.touch_gesture.oplus", "true");
         goto END;
     }
     // OnePlus 9 Pro
     if (deviceName == "lemonadep") {
         mDeviceInfo = &CONFIG_OP9P;
+        SetProperty("sys.nameless.feature.touch_gesture.bit", "340212");
         goto END;
     }
     // OnePlus 9
     if (deviceName == "lemonade") {
         mDeviceInfo = &CONFIG_OP9;
+        SetProperty("sys.nameless.feature.touch_gesture.bit", "340212");
         goto END;
     }
     // OnePlus 8/8T/9R
     if (deviceName == "instantnoodle" || deviceName == "kebab" || deviceName == "lemonades") {
         mDeviceInfo = &CONFIG_OP8_8T_9R;
+        SetProperty("sys.nameless.feature.touch_gesture.bit", "340212");
         goto END;
     }
     // OnePlus 8 Pro
     if (deviceName == "instantnoodlep") {
         mDeviceInfo = &CONFIG_OP8P;
+        SetProperty("sys.nameless.feature.touch_gesture.bit", "340212");
         goto END;
     }
 
