@@ -38,6 +38,7 @@ struct FeatureNode {
 struct DeviceInfo {
     const int supportedFeatures;
     const FeatureNode featureNode;
+    const ChargingStatus fastChargingStatus; 
 };
 
 struct Battery : public BnBattery {

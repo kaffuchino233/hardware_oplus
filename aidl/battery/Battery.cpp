@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "include/Preset.h"
+#include "include/Config.h"
 
 #include <android-base/file.h>
 #include <android-base/properties.h>
@@ -28,38 +28,38 @@ Battery::Battery() : mDeviceInfo(nullptr) {
 
     // OnePlus 13
     if (deviceName == "dodge") {
-        mDeviceInfo = &PRESET_ALL_FEATURE_NEW_QUIET_MODE;
+        mDeviceInfo = &CONFIG_OP13;
         goto END;
     }
     // OnePlus 12
     if (deviceName == "waffle") {
-        mDeviceInfo = &PRESET_ALL_FEATURE_NEW_QUIET_MODE;
+        mDeviceInfo = &CONFIG_OP12;
         goto END;
     }
     // OnePlus 11
     if (deviceName == "salami") {
-        mDeviceInfo = &PRESET_SUSPEND_CHARGING_ONLY;
+        mDeviceInfo = &CONFIG_OP11;
         goto END;
     }
     // OnePlus 9 Pro
     if (deviceName == "lemonadep") {
-        mDeviceInfo = &PRESET_ALL_FEATURE_NEW_QUIET_MODE;
+        mDeviceInfo = &CONFIG_OP9P;
         goto END;
     }
     // OnePlus 8/8T/9R
     if (deviceName == "instantnoodle" || deviceName == "kebab" || deviceName == "lemonades") {
-        mDeviceInfo = &PRESET_SUSPEND_CHARGING_ONLY;
+        mDeviceInfo = &CONFIG_OP8_8T_9R;
         goto END;
     }
     // OnePlus 8 Pro
     if (deviceName == "instantnoodlep") {
-        mDeviceInfo = &PRESET_ALL_FEATURE;
+        mDeviceInfo = &CONFIG_OP8P;
         goto END;
     }
 
     if (prjname <= 0) {
         ALOGE("device prjname is empty");
-        mDeviceInfo = &PRESET_EMPTY_FEATURE;
+        mDeviceInfo = &CONFIG_EMPTY_FEATURE;
         goto END;
     }
     switch (prjname) {
@@ -68,22 +68,22 @@ Battery::Battery() : mDeviceInfo(nullptr) {
             switch (rfVersion) {
                 case 11: // CN
                 case 13: // IN
-                    mDeviceInfo = &PRESET_SUSPEND_CHARGING_ONLY;
+                    mDeviceInfo = &CONFIG_OP9_CN_IN;
                     break;
                 case 12: // TMO
                 case 21: // EU
                 case 22: // NA
-                    mDeviceInfo = &PRESET_ALL_FEATURE_NEW_QUIET_MODE;
+                    mDeviceInfo = &CONFIG_OP9_TMO_EU_GLO;
                     break;
                 default:
                     ALOGE("device rf version is unsupported");
-                    mDeviceInfo = &PRESET_EMPTY_FEATURE;
+                    mDeviceInfo = &CONFIG_EMPTY_FEATURE;
                     goto END;
             }
             break;
         default:
             ALOGE("device prjname is unsupported");
-            mDeviceInfo = &PRESET_EMPTY_FEATURE;
+            mDeviceInfo = &CONFIG_EMPTY_FEATURE;
             goto END;
     }
 
@@ -199,7 +199,7 @@ ndk::ScopedAStatus Battery::readChargingStatus(ChargingStatus* _aidl_return) {
         return ndk::ScopedAStatus::ok();
     }
     *_aidl_return = !value.starts_with(mDeviceInfo->featureNode.voocChgingNode.readDisabledPrefix)
-            ? ChargingStatus::WARP_CHARGING : ChargingStatus::UNKNOWN;
+            ? mDeviceInfo->fastChargingStatus : ChargingStatus::UNKNOWN;
     if (DEBUG_ENABLED) {
         ALOGD("readChargingStatus, status: %d", static_cast<int>(*_aidl_return));
     }
