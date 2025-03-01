@@ -66,24 +66,6 @@ static const NodeInfo OPLUS_TOUCH_GESTURE_REPORT = {
     .oplusTouchFeatureId = 2
 };
 
-static const int FEATURE_DC_HBM              = static_cast<int>(Feature::DC_DIMMING) |
-                                               static_cast<int>(Feature::HBM_MODE);
-static const int FEATURE_HBM_HIGH_SAMPLE     = static_cast<int>(Feature::HBM_MODE) |
-                                               static_cast<int>(Feature::HIGH_SAMPLE_TOUCH);
-static const int FEATURE_DC_HBM_HIGH_SAMPLE  = static_cast<int>(Feature::DC_DIMMING) |
-                                               static_cast<int>(Feature::HBM_MODE) |
-                                               static_cast<int>(Feature::HIGH_SAMPLE_TOUCH);
-static const int FEATURE_HIGH_SAMPLE_LTPO    = static_cast<int>(Feature::HIGH_SAMPLE_TOUCH) |
-                                               static_cast<int>(Feature::LTPO);
-static const int FEATURE_DC_HIGH_SAMPLE_LTPO = static_cast<int>(Feature::DC_DIMMING) |
-                                               static_cast<int>(Feature::HIGH_SAMPLE_TOUCH) |
-                                               static_cast<int>(Feature::LTPO);
-static const int FEATURE_SDR2_HDR_MEMC_ALL   = static_cast<int>(Feature::SDR2HDR) |
-                                               static_cast<int>(Feature::MEMC_FHD) |
-                                               static_cast<int>(Feature::MEMC_QHD);
-static const int FEATURE_SDR2_HDR_MEMC_FHD   = static_cast<int>(Feature::SDR2HDR) |
-                                               static_cast<int>(Feature::MEMC_FHD);
-
 static const std::unordered_map<int, std::string> COLOR_MODE_MAP_0_256_258_259 = {
     { 0, "102" },
     { 256, "101" },
@@ -103,9 +85,8 @@ static const std::unordered_map<int, std::string> TP_ORIENTATION_MAP = {
 };
 
 static const DeviceInfo CONFIG_OP13 = {
-    .supportedFeatures = FEATURE_HIGH_SAMPLE_LTPO,
+    .supportedFeatures = static_cast<int>(Feature::LTPO),
     .featureNode = {
-        .highTouchSampleNode = OPLUS_TOUCH_HIGH_TOUCH_SAMPLE,
         .ltpoNode = { LTPO_MIN_FPS_NODE, LTPO_TEST_TE_NODE }
     },
     .colorModeMap = COLOR_MODE_MAP_303_301_307,
@@ -115,7 +96,9 @@ static const DeviceInfo CONFIG_OP13 = {
 };
 
 static const DeviceInfo CONFIG_OP12 = {
-    .supportedFeatures = FEATURE_DC_HIGH_SAMPLE_LTPO,
+    .supportedFeatures = static_cast<int>(Feature::DC_DIMMING) |
+                         static_cast<int>(Feature::HIGH_SAMPLE_TOUCH) |
+                         static_cast<int>(Feature::LTPO),
     .featureNode = {
         .dcDimmingNode = ONE_PULSE_NODE,
         .highTouchSampleNode = OPLUS_TOUCH_HIGH_TOUCH_SAMPLE,
@@ -128,7 +111,8 @@ static const DeviceInfo CONFIG_OP12 = {
 };
 
 static const DeviceInfo CONFIG_OP11 = {
-    .supportedFeatures = FEATURE_HIGH_SAMPLE_LTPO,
+    .supportedFeatures = static_cast<int>(Feature::HIGH_SAMPLE_TOUCH) |
+                         static_cast<int>(Feature::LTPO),
     .featureNode = {
         .highTouchSampleNode = OPLUS_TOUCH_HIGH_TOUCH_SAMPLE,
         .ltpoNode = { LTPO_MIN_FPS_NODE, LTPO_TEST_TE_NODE }
@@ -140,8 +124,10 @@ static const DeviceInfo CONFIG_OP11 = {
 };
 
 static const DeviceInfo CONFIG_OP9P = {
-    .supportedFeatures = FEATURE_HBM_HIGH_SAMPLE |
-                         FEATURE_SDR2_HDR_MEMC_FHD,
+    .supportedFeatures = static_cast<int>(Feature::HBM_MODE) |
+                         static_cast<int>(Feature::HIGH_SAMPLE_TOUCH) |
+                         static_cast<int>(Feature::SDR2HDR) |
+                         static_cast<int>(Feature::MEMC_FHD),
     .featureNode = {
         .hbmNode = HBM_NODE,
         .highTouchSampleNode = HIGH_TOUCH_SAMPLE_NODE
@@ -151,7 +137,8 @@ static const DeviceInfo CONFIG_OP9P = {
 };
 
 static const DeviceInfo CONFIG_OP9 = {
-    .supportedFeatures = FEATURE_HBM_HIGH_SAMPLE,
+    .supportedFeatures = static_cast<int>(Feature::HBM_MODE) |
+                         static_cast<int>(Feature::HIGH_SAMPLE_TOUCH),
     .featureNode = {
         .hbmNode = HBM_NODE,
         .highTouchSampleNode = HIGH_TOUCH_SAMPLE_NODE
@@ -161,7 +148,9 @@ static const DeviceInfo CONFIG_OP9 = {
 };
 
 static const DeviceInfo CONFIG_OP8_8T_9R = {
-    .supportedFeatures = FEATURE_DC_HBM_HIGH_SAMPLE,
+    .supportedFeatures = static_cast<int>(Feature::DC_DIMMING) |
+                         static_cast<int>(Feature::HBM_MODE) |
+                         static_cast<int>(Feature::HIGH_SAMPLE_TOUCH),
     .featureNode = {
         .dcDimmingNode = DC_DIMMING_NODE,
         .hbmNode = HBM_NODE,
@@ -172,8 +161,12 @@ static const DeviceInfo CONFIG_OP8_8T_9R = {
 };
 
 static const DeviceInfo CONFIG_OP8P = {
-    .supportedFeatures = FEATURE_DC_HBM_HIGH_SAMPLE |
-                         FEATURE_SDR2_HDR_MEMC_ALL,
+    .supportedFeatures = static_cast<int>(Feature::DC_DIMMING) |
+                         static_cast<int>(Feature::HBM_MODE) |
+                         static_cast<int>(Feature::HIGH_SAMPLE_TOUCH) |
+                         static_cast<int>(Feature::SDR2HDR) |
+                         static_cast<int>(Feature::MEMC_FHD) |
+                         static_cast<int>(Feature::MEMC_QHD),
     .featureNode = {
         .dcDimmingNode = DC_DIMMING_NODE,
         .hbmNode = HBM_NODE,
