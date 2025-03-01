@@ -381,12 +381,10 @@
 # Vibrator
 /(odm|vendor/odm)/etc/vibrator(/.*)?                                                  u:object_r:vendor_vibrator_data_file:s0
 /(vendor|system/vendor)/bin/hw/vendor\.nameless\.hardware\.vibratorExt-service\.oplus u:object_r:hal_vibrator_ext_default_exec:s0
-/vendor/bin/hw/android\.hardware\.vibrator\.service\.oplus-richtap                    u:object_r:hal_vibrator_default_exec:s0
 /vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.oplus                        u:object_r:hal_vibrator_default_exec:s0
 /sys/devices/platform/soc/a8c000.i2c/i2c-6/6-005a/leds/vibrator/(/.*)?                u:object_r:sysfs_vibrator:s0
 /sys/devices/platform/soc/88c000.i2c/i2c-6/6-005a/leds/vibrator/(/.*)?                u:object_r:sysfs_vibrator:s0
 /sys/devices/platform/soc/88c000.i2c/i2c-11/11-005a/leds/vibrator/(/.*)?              u:object_r:sysfs_vibrator:s0
-/dev/awinic_haptic                                                                    u:object_r:aac_richtap_device:s0
 /dev/input/(/.*)?                                                                     u:object_r:sysfs_vibrator:s0
 
 # Widevine
