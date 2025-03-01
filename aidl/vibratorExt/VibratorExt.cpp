@@ -14,6 +14,7 @@
 #include <android-base/properties.h>
 
 using ::android::base::GetProperty;
+using ::android::base::SetProperty;
 
 namespace aidl {
 namespace vendor {
@@ -30,16 +31,28 @@ VibratorExt::VibratorExt() : mVibrator(nullptr) {
     // OnePlus 13
     if (deviceName == "dodge") {
         mVibrator = new dodge_0916t_vibrator();
+        SetProperty("sys.nameless.feature.vibrator.external_control", "true");
+        SetProperty("sys.nameless.feature.vibrator.richtap", "true");
+        SetProperty("sys.nameless.feature.vibrator.richtap_dev", "/dev/awinic_haptic");
+        SetProperty("sys.nameless.feature.vibrator.richtap_config", "/odm/etc/aac_richtap.config");
         goto END;
     }
     // OnePlus 12
     if (deviceName == "waffle") {
         mVibrator = new waffle_0916t_vibrator();
+        SetProperty("sys.nameless.feature.vibrator.external_control", "true");
+        SetProperty("sys.nameless.feature.vibrator.richtap", "true");
+        SetProperty("sys.nameless.feature.vibrator.richtap_dev", "/dev/awinic_haptic");
+        SetProperty("sys.nameless.feature.vibrator.richtap_config", "/odm/etc/aac_richtap.config");
         goto END;
     }
     // OnePlus 11
     if (deviceName == "salami") {
         mVibrator = new salami_0916_vibrator();
+        SetProperty("sys.nameless.feature.vibrator.external_control", "true");
+        SetProperty("sys.nameless.feature.vibrator.richtap", "true");
+        SetProperty("sys.nameless.feature.vibrator.richtap_dev", "/dev/awinic_haptic");
+        SetProperty("sys.nameless.feature.vibrator.richtap_config", "/odm/etc/aac_richtap.config");
         goto END;
     }
     // OnePlus 9/9 Pro
@@ -61,6 +74,8 @@ END:
     if (DEBUG_ENABLED) {
         ALOGD("vibrator name: %s", mVibrator->getName());
     }
+
+    SetProperty("sys.nameless.feature.vibrator.ready", "1");
 }
 
 ndk::ScopedAStatus VibratorExt::initVibrator() {
