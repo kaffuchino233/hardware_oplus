@@ -62,6 +62,21 @@ static const LevelRangeConfig UNIFIED_LEVEL_RANGE_CONFIG = {
     }
 };
 
+static const LevelRangeConfig LEVEL_RANGE_CONFIG_OP12_13 = {
+    .alarmCallLevelRange = {
+        .maxLevel = 5,
+        .defaultLevel = 4
+    },
+    .hapticLevelRange = {
+        .maxLevel = 14,
+        .defaultLevel = 11
+    },
+    .notificationLevelRange = {
+        .maxLevel = 5,
+        .defaultLevel = 4
+    }
+};
+
 static Effect durationToEffectId(long duration) {
     if (duration < 17) {
         return Effect::DURATION_STRENGTH_LEVEL3;
