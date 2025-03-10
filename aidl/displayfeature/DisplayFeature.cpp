@@ -44,6 +44,7 @@ DisplayFeature::DisplayFeature() : mDeviceInfo(nullptr) {
     // OnePlus 11
     if (deviceName == "salami") {
         mDeviceInfo = &CONFIG_OP11;
+        SetProperty("sys.nameless.feature.display.dc_alias_one_pulse", "true");
         SetProperty("sys.nameless.feature.touch_gesture.bit", "78068");
         SetProperty("sys.nameless.feature.touch_gesture.oplus", "true");
         goto END;

@@ -111,9 +111,11 @@ static const DeviceInfo CONFIG_OP12 = {
 };
 
 static const DeviceInfo CONFIG_OP11 = {
-    .supportedFeatures = static_cast<int>(Feature::HIGH_SAMPLE_TOUCH) |
+    .supportedFeatures = static_cast<int>(Feature::DC_DIMMING) |
+                         static_cast<int>(Feature::HIGH_SAMPLE_TOUCH) |
                          static_cast<int>(Feature::LTPO),
     .featureNode = {
+        .dcDimmingNode = ONE_PULSE_NODE,
         .highTouchSampleNode = OPLUS_TOUCH_HIGH_TOUCH_SAMPLE,
         .ltpoNode = { LTPO_MIN_FPS_NODE, LTPO_TEST_TE_NODE }
     },
