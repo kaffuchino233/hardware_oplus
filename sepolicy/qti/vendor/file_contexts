@@ -243,7 +243,6 @@
 
 # Display
 /dev/oplus_display          u:object_r:graphics_device:s0
-/vendor/lib64/libubwcp\.so  u:object_r:same_process_hal_file:s0
 
 # Display (Pixelworks)
 /(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.display\.iris-service           u:object_r:vendor_hal_display_iris_default_exec:s0
@@ -337,7 +336,8 @@
 /dev/block/platform/soc/4804000\.ufshc/by-name/oplusreserve[1-5]    u:object_r:vendor_reserve_partition:s0
 
 # Secure Element
-/(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service    u:object_r:hal_secure_element_default_exec:s0
+/(odm|vendor/odm)/bin/hw/android\.hardware\.secure_element-service\.qti    u:object_r:hal_secure_element_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service          u:object_r:hal_secure_element_default_exec:s0
 
 # Sensors
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.oplusSensor@1\.0-service    u:object_r:vendor_hal_oplusSensor_default_exec:s0
