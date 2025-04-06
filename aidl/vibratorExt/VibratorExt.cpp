@@ -58,11 +58,17 @@ VibratorExt::VibratorExt() : mVibrator(nullptr) {
     // OnePlus 9/9 Pro
     if (deviceName == "lemonade" || deviceName == "lemonadep") {
         mVibrator = new lahaina_0809_vibrator();
+        SetProperty("sys.nameless.feature.vibrator.richtap", "true");
+        SetProperty("sys.nameless.feature.vibrator.richtap_dev", "/dev/awinic_haptic");
+        SetProperty("sys.nameless.feature.vibrator.richtap_config", "/odm/etc/aac_richtap.config");
         goto END;
     }
     // OnePlus 8/8 Pro/8T/9R
     if (deviceName == "instantnoodle" || deviceName == "instantnoodlep" || deviceName == "kebab" || deviceName == "lemonades") {
         mVibrator = new kona_0815_vibrator();
+        SetProperty("sys.nameless.feature.vibrator.richtap", "true");
+        SetProperty("sys.nameless.feature.vibrator.richtap_dev", "/dev/awinic_haptic");
+        SetProperty("sys.nameless.feature.vibrator.richtap_config", "/odm/etc/aac_richtap.config");
         goto END;
     }
 
