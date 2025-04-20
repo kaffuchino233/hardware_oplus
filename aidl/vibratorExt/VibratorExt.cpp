@@ -5,6 +5,7 @@
 
 #include "include/StubVibrator.h"
 #include "include/VibratorExt.h"
+#include "include/device/corvette_0916t.h"
 #include "include/device/dodge_0916t.h"
 #include "include/device/kona_0815.h"
 #include "include/device/lahaina_0809.h"
@@ -26,6 +27,16 @@ VibratorExt::VibratorExt() : mVibrator(nullptr) {
     std::string deviceName = GetProperty("ro.nameless.device", "");
     if (DEBUG_ENABLED) {
         ALOGD("device name: %s", deviceName.c_str());
+    }
+
+    // OnePlus Ace 3 Pro
+    if (deviceName == "corvette") {
+        mVibrator = new corvette_0916t_vibrator();
+        SetProperty("sys.nameless.feature.vibrator.external_control", "true");
+        SetProperty("sys.nameless.feature.vibrator.richtap", "true");
+        SetProperty("sys.nameless.feature.vibrator.richtap_dev", "/dev/awinic_haptic");
+        SetProperty("sys.nameless.feature.vibrator.richtap_config", "/odm/etc/aac_richtap.config");
+        goto END;
     }
 
     // OnePlus 13

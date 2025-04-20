@@ -7,12 +7,12 @@
 
 #include "../InputFFVibrator.h"
 
-static const FirmwarePathConfig FIRMWARE_PATH_CONFIG_WAFFLE = {
+static const FirmwarePathConfig FIRMWARE_PATH_CONFIG_CORVETTE = {
     .crispPathPrefix = "/odm/etc/vibrator/9999/def/effect_",
     .gentlePathPrefix = "/odm/etc/vibrator/9999/soft/effect_"
 };
 
-static std::unordered_map<Effect, CustomEffectStyleSet> EFFECTS_MAP_WAFFLE {
+static std::unordered_map<Effect, CustomEffectStyleSet> EFFECTS_MAP_CORVETTE {
     // AOSP effects
     { Effect::CLICK, {
         .crisp = {
@@ -366,12 +366,12 @@ static std::unordered_map<Effect, CustomEffectStyleSet> EFFECTS_MAP_WAFFLE {
     }}
 };
 
-class waffle_0916t_vibrator : public InputFFVibrator {
+class corvette_0916t_vibrator : public InputFFVibrator {
 public:
-    waffle_0916t_vibrator() : InputFFVibrator(
+    corvette_0916t_vibrator() : InputFFVibrator(
         &LEVEL_RANGE_CONFIG_OP11_12_13_ACE3P,
-        &FIRMWARE_PATH_CONFIG_WAFFLE,
-        EFFECTS_MAP_WAFFLE
+        &FIRMWARE_PATH_CONFIG_CORVETTE,
+        EFFECTS_MAP_CORVETTE
     ) {}
 
     bool isMultipleStyleSupported() override {
@@ -379,6 +379,6 @@ public:
     }
 
     const char* getName() override {
-        return "waffle_0916t_vibrator";
+        return "corvette_0916t_vibrator";
     }
 };
