@@ -104,7 +104,6 @@ static const DeviceInfo CONFIG_OPACE3P = {
         .highTouchSampleNode = OPLUS_TOUCH_HIGH_TOUCH_SAMPLE,
         .ltpoNode = { LTPO_MIN_FPS_NODE, LTPO_TEST_TE_NODE }
     },
-    .colorModeMap = COLOR_MODE_MAP_0_256_258_259,
     .useOplusTouch = true,
     .touchGestureInitNode = { OPLUS_TOUCH_DT2W, OPLUS_TOUCH_GESTURE_WITHOUT_S },
     .touchGestureReportNode = OPLUS_TOUCH_GESTURE_REPORT
